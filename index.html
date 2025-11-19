@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulado - Relações Humanas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            font-size: 14px;
+        }
+
+        .question {
+            margin-bottom: 30px;
+            padding: 15px;
+            background: #fafafa;
+            border-left: 4px solid #3498db;
+            border-radius: 4px;
+        }
+
+        .question-header {
+            font-weight: bold;
+            margin-bottom: 12px;
+            color: #2c3e50;
+        }
+
+        .question-text {
+            margin-bottom: 15px;
+            font-size: 15px;
+        }
+
+        .option {
+            display: block;
+            padding: 10px;
+            margin: 8px 0;
+            background: white;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .option:hover {
+            border-color: #3498db;
+            background: #ecf0f1;
+        }
+
+        .option.selected {
+            background: #3498db;
+            color: white;
+            border-color: #2980b9;
+        }
+
+        .option input[type="radio"] {
+            margin-right: 8px;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 30px;
+            transition: background 0.3s;
+        }
+
+        .btn:hover {
+            background: #229954;
+        }
+
+        .btn:disabled {
+            background: #95a5a6;
+            cursor: not-allowed;
+        }
+
+        #resultado {
+            display: none;
+            margin-top: 30px;
+        }
+
+        .score {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            padding: 20px;
+            background: #ecf0f1;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .score.aprovado {
+            background: #d5f4e6;
+            color: #27ae60;
+        }
+
+        .score.reprovado {
+            background: #fadbd8;
+            color: #e74c3c;
+        }
+
+        .gabarito-item {
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 4px;
+            border-left: 4px solid;
+        }
+
+        .gabarito-item.correto {
+            background: #d5f4e6;
+            border-color: #27ae60;
+        }
+
+        .gabarito-item.incorreto {
+            background: #fadbd8;
+            border-color: #e74c3c;
+        }
+
+        .gabarito-item strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .sua-resposta {
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 20px;
+            }
+            
+            .question-text {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Simulado Final - Relações Humanas</h1>
+        <p class="subtitle">Curso Técnico de Enfermagem | 30 Questões</p>
+
+        <form id="quizForm">
+            <!-- Questões PNH -->
+            <div class="question">
+                <div class="question-header">Questão 1 - Política Nacional de Humanização</div>
+                <div class="question-text">A Política Nacional de Humanização (PNH) foi criada em 2003 com o objetivo de efetivar os princípios do SUS nas práticas cotidianas de saúde. Entre os princípios fundamentais que a PNH busca resgatar e fortalecer, destacam-se aspectos essenciais para garantir um atendimento de qualidade à população. Qual das alternativas apresenta corretamente os princípios do SUS que a PNH propõe resgatar?</div>
+                <label class="option"><input type="radio" name="q1" value="A"> A) Universalidade, equidade, integralidade, descentralização, hierarquização e participação popular</label>
+                <label class="option"><input type="radio" name="q1" value="B"> B) Privatização, centralização, fragmentação do cuidado e gestão autoritária</label>
+                <label class="option"><input type="radio" name="q1" value="C"> C) Atendimento especializado, exclusividade, tratamento diferenciado e gestão verticalizada</label>
+                <label class="option"><input type="radio" name="q1" value="D"> D) Seletividade, hierarquia rígida, individualismo e gestão por resultados financeiros</label>
+            </div>
+
+            <div class="question">
+                <div class="question-header">Questão 2 - Política Nacional de Humanização</div>
+                <div class="question-text">Um dos princípios norteadores da PNH é a transversalidade, que propõe uma mudança significativa na forma como os serviços de saúde se comunicam e interagem. Considerando o contexto hospitalar onde você atua como técnico de enfermagem, como o princípio da transversalidade pode ser aplicado no dia a dia?</div>
+                <label class="option"><input type="radio" name="q2" value="A"> A) Mantendo cada setor isolado em suas funções específicas sem comunicação entre as equipes</label>
+                <label class="option"><input type="radio" name="q2" value="B"> B) Promovendo o aumento da comunicação intra e intergrupos, facilitando o diálogo entre diferentes setores e profissionais</label>
+                <label class="option"><input type="radio" name="q2" value="C"> C) Estabelecendo uma hierarquia rígida onde apenas os gestores tomam decisões</label>
+                <label class="option"><input type="radio" name="q2" value="D"> D) Limitando a participação dos usuários nas decisões sobre seu próprio cuidado</label>
+            </div>
+
+            <div class="question">
+                <div class="question-header">Questão 3 - Política Nacional de Humanização</div>
+                <div class="question-text">A PNH enfatiza que a humanização não se limita apenas ao atendimento dos pacientes, mas também envolve aspectos relacionados aos profissionais de saúde. Segundo o documento, qual é a importância de investir no trabalhador de saúde dentro da perspectiva da humanização?</div>
+                <label class="option"><input type="radio" name="q3" value="A"> A) Apenas para aumentar a produtividade e reduzir custos operacionais da instituição</label>
+                <label class="option"><input type="radio" name="q3" value="B"> B) Para que os trabalhadores participem de mais reuniões administrativas</label>
+                <label class="option"><input type="radio" name="q3" value="C"> C) Para que o trabalhador tenha condições de prestar atendimento humanizado, através de capacitação, trabalho em equipe e valorização profissional</label>
+                <label class="option"><input type="radio" name="q3" value="D"> D) Somente para cumprir exigências legais sem impacto real na qualidade do atendimento</label>
+            </div>
+
+            <div class="question">
+                <div class="question-header">Questão 4 - Política Nacional de Humanização</div>
+                <div class="question-text">A indissociabilidade entre atenção e gestão é um princípio fundamental da PNH. Na sua prática como técnico de enfermagem, você observa que mudanças na forma de cuidar dos pacientes estão diretamente relacionadas a mudanças na gestão do serviço. Qual afirmação melhor representa esse conceito?</div>
+                <label class="option"><input type="radio" name="q4" value="A"> A) A forma como cuidamos dos pacientes independe completamente de como a gestão organiza o trabalho</label>
+                <label class="option"><input type="radio" name="q4" value="B"> B) Apenas mudanças na gestão administrativa são suficientes para melhorar o cuidado</label>
+                <label class="option"><input type="radio" name="q4" value="C"> C) Os trabalhadores não devem participar das decisões de gestão, apenas executar tarefas</label>
+                <label class="option"><input type="radio" name="q4" value="D"> D) A alteração dos modos de cuidar é inseparável da alteração dos modos de gerir, e incluir trabalhadores na gestão é fundamental para que reinventem seus processos de trabalho</label>
+            </div>
+
+            <div class="question">
+                <div class="question-header">Questão 5 - Política Nacional de Humanização</div>
+                <div class="question-text">O Grupo de Trabalho de Humanização (GTH) é uma estratégia importante da PNH para implementação da política nas instituições de saúde. Qual é o papel principal dos membros que compõem um GTH em um hospital?</div>
+                <label class="option"><input type="radio" name="q5" value="A"> A) Serem multiplicadores e apoiadores da PNH, atuando como construtores de novas realidades em saúde e futuros formadores da PNH</label>
+                <label class="option"><input type="radio" name="q5" value="B"> B) Exercerem controle disciplinar sobre os funcionários que não seguem protocolos</label>
+                <label class="option"><input type="radio" name="q5" value="C"> C) Focarem exclusivamente em reduzir custos e aumentar a eficiência operacional</label>
+                <label class="option"><input type="radio" name="q5" value="D"> D) Substituírem a gestão administrativa nas decisões do dia a dia</label>
+            </div>
+
+            <div class="question">
+                <div class="question-header">Questão 6 - Política Nacional de Humanização</div>
+                <div class="question-text">A valorização da participação de usuários, profissionais e gestores é essencial para a PNH. Em uma reunião de equipe, discute-se sobre como envolver mais os pacientes nas decisões sobre seu tratamento. Qual estratégia está mais alinhada com os princípios da humanização?</div>
+                <label class="option"><input type="radio" name="q6" value="A"> A) Informar apenas o necessário ao paciente para que ele siga as orientações médicas sem questionamentos</label>
+                <label class="option"><input type="radio" name="q6" value="B"> B) Incluir usuários e suas redes sócio-familiares nos processos de cuidado, ampliando a corresponsabilização no cuidado de si</label>
+                <label class="option"><input type="radio" name="q6" value="C"> C) Tomar todas as decisões em equipe sem consultar o paciente ou sua família</label>
+                <label class="option"><input type="radio" name="q6" value="D"> D) Delegar todas as decisões exclusivamente para a família do paciente</label>
+            </div>
+
+            <div class="question">
+                <div class="question-header">Questão 7 - Política Nacional de Humanização</div>
+                <div class="question-text">A ambiência hospitalar é um aspecto importante da humanização segundo o Ministério da Saúde. Você está participando de uma reforma do seu setor no hospital e precisa sugerir melhorias baseadas nos princípios da PNH. Qual característica do ambiente NÃO é recomendada para promover humanização?</div>
+                <label class="option"><input type="radio" name="q7" value="A"> A) Utilização de cores variadas e elementos decorativos para tornar o ambiente mais acolhedor</label>
+                <label class="option"><input type="radio" name="q7" value="B"> B) Garantir iluminação natural através de janelas com vista para áreas externas</label>
+                <label class="option"><input type="radio" name="q7" value="C"> C) Manter o ambiente completamente branco e monocromático, pois causa cansaço visual e distração nos profissionais</label>
+                <label class="option"><input type="radio" name="q7" value="D"> D) Criar espaços com contato visual para áreas externas, preferencialmente com paisagens naturais</label>
+            </div>
+
+            <div class="question">
+                <div class="question-header">Questão 8 - Política Nacional de Humanização</div>
+                <div class="question-text">As relações interpessoais no ambiente de trabalho em saúde são fundamentais para a humanização. Durante o plantão, você percebe tensões entre membros da equipe que podem afetar o cuidado aos pacientes. Segundo a PNH, qual abordagem é mais adequada para melhorar essas relações?</div>
+                <label class="option"><input type="radio" name="q8" value="A"> A) Ignorar os conflitos esperando que se resolvam naturalmente com o tempo</label>
+                <label class="option"><input type="radio" name="q8" value="B"> B) Promover reflexão, diálogo, escuta e autossensibilização através de ações democráticas e participativas envolvendo toda a equipe</label>
+                <label class="option"><input type="radio" name="q8" value="C"> C) Separar fisicamente os profissionais que têm conflitos para evitar interações</label>
+                <label class="option"><input type="radio" name="q8" value="D"> D) Aplicar punições administrativas sem buscar compreender as causas dos conflitos</label>
+            </div>
+
+            <div class="question">
+                <div class="question-header">Questão 9 - Política Nacional de Humanização</div>
+                <div class="question-text">A ergonomia do ambiente de trabalho está relacionada à humanização tanto para trabalhadores quanto para usuários. Você nota que muitos colegas se queixam de dores musculares e cansaço excessivo. Qual aspecto da ergonomia, segundo a PNH, deve ser considerado para melhorar essa situação?</div>
+                <label class="option"><input type="radio" name="q9" value="A"> A) A ergonomia envolve apenas a disposição de móveis, sem relação com métodos de trabalho</label>
+                <label class="option"><input type="radio" name="q9" value="B"> B) Aspectos como cor, iluminação e conforto térmico não influenciam na saúde do trabalhador</label>
+                <label class="option"><input type="radio" name="q9" value="C"> C) A ergonomia abrange instrumentos, métodos de organização do trabalho, capacidades psicofisiológicas, antropométricas e biomecânicas que interagem entre si</label>
+                <label class="option"><input type="radio" name="q9" value="D"> D) Apenas treinamentos técnicos são suficientes, sem necessidade de adequação do ambiente físico</label>
+            </div>
+
+            <div class="question">
+                <div class="question-header">Questão 10 - Política Nacional de Humanização</div>
+                <div class="question-text">A PNH propõe a criação de espaços para compartilhar experiências e reunir a equipe como forma de contribuir para a produção do cuidado. Um hospital implementou reuniões semanais onde os profissionais podem falar sobre suas dificuldades e sucessos. Qual o principal benefício dessa prática segundo os princípios da humanização?</div>
+                <label class="option"><input type="radio" name="q10" value="A"> A) Aumentar o controle gerencial sobre as atividades dos funcionários</label>
+                <label class="option"><input type="radio" name="q10" value="B"> B) Criar oportunidades para críticas e penalizações dos profissionais com baixo desempenho</label>
+                <label class="option"><input type="radio" name="q10" value="C"> C) Reduzir o tempo dedicado ao atendimento direto dos pacientes</label>
+                <label class="option"><input type="radio" name="q10" value="D"> D) Contribuir positivamente para a produção do cuidado de forma mais prazerosa, com eficácia e eficiência, além de promover o autocuidado do trabalhador</label>
+            </div>
+
+            <!-- Questões Saúde Profissional -->
+            <div class="question">
+                <div class="question-header">Questão 11 - Saúde Profissional</div>
+                <div class="question-text">O estresse ocupacional é uma realidade crescente entre os profissionais de enfermagem. Diversos fatores intrapsíquicos podem contribuir para o desenvolvimento do estresse relacionado ao trabalho. Dentre as opções abaixo, qual NÃO representa um fator intrapsíquico do estresse em relação ao trabalho?</div>
+                <label class="option"><input type="radio" name="q11" value="A"> A) Sensação de insegurança e insuficiência profissional</label>
+                <label class="option"><input type="radio" name="q11" value="B"> B) Ruídos e ergonomia inadequada do ambiente</label>
+                <label class="option"><input type="radio" name="q11" value="C"> C) Conflitos internos e desavenças familiares</label>
+                <label class="option"><input type="radio" name="q11" value="D"> D) Falta de projetos de vida e medo do desemprego</label>
+            </div>
+
+            <div class="question">
+                <div class="question-header">Questão 12 - Saúde Profissional</div>
+                <div class="question-text">O assédio moral no ambiente de trabalho é caracterizado por condutas específicas que causam dano ao trabalhador. Para que uma situação seja caracterizada como assédio moral, alguns elementos precisam estar presentes. Qual conjunto de elementos caracteriza adequadamente o assédio moral?</div>
+                <label class="option"><input type="radio" name="q12" value="A"> A) Críticas construtivas realizadas em público, transferências por necessidade administrativa e avaliações de desempenho</label>
+                <label class="option"><input type="radio" name="q12" value="B"> B) Conduta abusiva, natureza psicológica da conduta, reiteração (repetição) e finalidade de exclusão</label>
+                <label class="option"><input type="radio" name="q12" value="C"> C) Atividades psicologicamente estressantes, conflitos esporádicos e exercício de autoridade hierárquica</label>
+                <label class="option"><input type="radio" name="q12" value="D"> D) Atribuição de tarefas, alteração de jornada e destituição de funções comissionadas</label>
+            </div>
+
+            <div class="question">
+                <div class="question-header">Questão 13 - Saúde Profissional</div>
+                <div class="question-text">Você trabalha em uma unidade hospitalar e percebe que um colega técnico de enfermagem do mesmo nível hierárquico tem feito comentários depreciativos repetidamente sobre outro colega, criando situações constrangedoras. Esse comportamento se enquadra em qual tipo de assédio moral?</div>
+                <label class="option"><input type="radio" name="q13" value="A"> A) Assédio moral vertical descendente, pois envolve relação entre colegas</label>
+                <label class="option"><input type="radio" name="q13" value="B"> B) Não se caracteriza como assédio moral, pois são apenas conflitos esporádicos</label>
+                <label class="option"><input type="radio" name="q13" value="C"> C) Assédio moral horizontal, pois ocorre entre profissionais do mesmo nível hierárquico</label>
+                <label class="option"><input type="radio" name="q13" value="D"> D) Assédio moral misto, pois envolve superiores e subordinados simultaneamente</label>
+            </div>
+
+            <div class="question">
+                <div class="question-header">Questão 14 - Saúde Profissional</div>
+                <div class="question-text">As fases do assédio moral seguem uma progressão que pode culminar em consequências graves para a vítima. Na segunda fase, conhecida como fase de estigmatização, observa-se um conjunto de comportamentos específicos do agressor. O que caracteriza principalmente essa fase?</div>
+                <label class="option"><input type="radio" name="q14" value="A"> A) Uma situação inicial de conflito que poderia ser resolvida através do diálogo</label>
+                <label class="option"><input type="radio" name="q14" value="B"> B) A intervenção positiva da direção da empresa com investigação e troca de posto</label>
+                <label class="option"><input type="radio" name="q14" value="C"> C) O abandono do trabalho e marginalização completa da vítima</label>
+                <label class="option"><input type="radio" name="q14" value="D"> D) O agressor utiliza estratégias de humilhação, ridicularização e isolamento social da vítima, que ainda não acredita no que está acontecendo</label>
+            </div>
+
+            <div class="question">
+                <div class="question-header">Questão 15 - Saúde Profissional</div>
+                <div class="question-text">A Síndrome de Burnout é uma condição que afeta diversos profissionais de saúde, incluindo técnicos de enfermagem. É importante diferenciá-la de outras condições como o estresse comum. Qual característica é específica da Síndrome de Burnout e a diferencia do estresse ocupacional regular?</div>
+                <label class="option"><input type="radio" name="q15" value="A"> A) É uma reação natural a situações de emergência com esgotamento físico e hipersensibilidade</label>
+                <label class="option"><input type="radio" name="q15" value="B"> B) Caracteriza-se por desilusão causada pelo excesso de situações estressantes, esgotamento emocional, falta de sensibilidade e redução da motivação</label>
+                <label class="option"><input type="radio" name="q15" value="C"> C) Apresenta apenas sintomas físicos como fadiga e dores musculares</label>
+                <label class="option"><input type="radio" name="q15" value="D"> D) Ocorre exclusivamente em profissionais que trabalham com atendimento ao público</label>
+            </div>
+
+            <div class="question">
+                <div class="question-header">Questão 16 - Saúde Profissional</div>
+                <div class="question-text">Um técnico de enfermagem apresenta sintomas como fadiga constante, distúrbios do sono, dores musculares, alterações de memória, falta de atenção, baixa autoestima, irritabilidade e perda de interesse pelo trabalho. Esses sintomas persistem há vários meses. Considerando o conjunto de manifestações, qual condição está mais provavelmente presente?</div>
+                <label class="option"><input type="radio" name="q16" value="A"> A) Estresse ocupacional agudo que se resolverá com alguns dias de descanso</label>
+                <label class="option"><input type="radio" name="q16" value="B"> B) Fadiga normal relacionada à carga horária de trabalho</label>
+                <label class="option"><input type="radio" name="q16" value="C"> C) Síndrome de Burnout, caracterizada por sintomas físicos, psíquicos e comportamentais progressivos</label>
+                <label class="option"><input type="radio" name="q16" value="D"> D) Preguiça e desmotivação pessoal sem relação com o trabalho</label>
+            </div>
+
+            <div class="question">
+                <div class="question-header">Questão 17 - Saúde Profissional</div>
+                <div class="question-text">Durante uma reunião de equipe, o enfermeiro coordenador critica publicamente o trabalho de um técnico de enfermagem, apontando erros cometidos e comparando-o negativamente com outros membros da equipe. Essa situação ocorre frequentemente. Como essa prática deve ser avaliada?</div>
+                <label class="option"><input type="radio" name="q17" value="A"> A) É um ato de gestão legítimo, pois supervisores podem criticar subordinados publicamente</label>
+                <label class="option"><input type="radio" name="q17" value="B"> B) É uma prática educativa necessária para melhorar o desempenho da equipe</label>
+                <label class="option"><input type="radio" name="q17" value="C"> C) Pode caracterizar assédio moral, pois críticas e avaliações não devem ser realizadas em público, expondo o trabalhador a situações vexatórias</label>
+                <label class="option"><input type="radio" name="q17" value="D"> D) É um conflito esporádico que não merece atenção especial</label>
+            </div>
+
+            <div class="question">
+                <div class="question-header">Questão 18 - Saúde Profissional</div>
+                <div class="question-text">O perfil do agressor em casos de assédio moral muitas vezes não é facilmente identificável, pois essas pessoas projetam uma imagem positiva de si mesmas. Qual característica frequentemente está presente no comportamento do agressor?</div>
+                <label class="option"><input type="radio" name="q18" value="A"> A) Demonstra insegurança constante e baixa autoestima em todas as situações</label>
+                <label class="option"><input type="radio" name="q18" value="B"> B) Tem receio dos êxitos e méritos alheios, agindo por sentimento de irritação e necessidade de sentir-se superior</label>
+                <label class="option"><input type="radio" name="q18" value="C"> C) Age impulsivamente sem premeditação ou intenção de causar dano</label>
+                <label class="option"><input type="radio" name="q18" value="D"> D) É facilmente identificável por todos devido ao seu comportamento abertamente hostil</label>
+            </div>
+
+            <div class="question">
+                <div class="question-header">Questão 19 - Saúde Profissional</div>
+                <div class="question-text">As consequências do assédio moral são diversas e afetam múltiplos aspectos da vida da vítima. Entre as consequências listadas, qual conjunto representa adequadamente os efeitos do assédio moral sobre a saúde do trabalhador?</div>
+                <label class="option"><input type="radio" name="q19" value="A"> A) Aumento da produtividade, melhora da autoestima e fortalecimento dos vínculos sociais</label>
+                <label class="option"><input type="radio" name="q19" value="B"> B) Apenas consequências administrativas como advertências e demissão</label>
+                <label class="option"><input type="radio" name="q19" value="C"> C) Distúrbios orgânicos, problemas gástricos, úlceras, baixa autoestima, ansiedade, pânico, depressão e possível uso de drogas</label>
+                <label class="option"><input type="radio" name="q19" value="D"> D) Sintomas leves e transitórios que desaparecem espontaneamente</label>
+            </div>
+
+            <div class="question">
+                <div class="question-header">Questão 20 - Saúde Profissional</div>
+                <div class="question-text">Em uma instituição de saúde, foi implementado um canal de denúncia e programa de compliance para lidar com casos de assédio moral. Qual é a importância dessas ferramentas no contexto organizacional?</div>
+                <label class="option"><input type="radio" name="q20" value="A"> A) São mecanismos apenas burocráticos sem impacto real na prevenção do assédio</label>
+                <label class="option"><input type="radio" name="q20" value="B"> B) Servem exclusivamente para punir trabalhadores que cometem erros técnicos</label>
+                <label class="option"><input type="radio" name="q20" value="C"> C) Representam possibilidades de tratativas para identificar, prevenir e intervir em situações de assédio moral</label>
+                <label class="option"><input type="radio" name="q20" value="D"> D) Devem ser utilizadas apenas em grandes corporações, não em hospitais</label>
+            </div>
+
+            <!-- Questões Diversidade e Inclusão -->
+            <div class="question">
+                <div class="question-header">Questão 21 - Diversidade e Inclusão</div>
+                <div class="question-text">Durante o atendimento em uma unidade de saúde, um técnico de enfermagem se depara com diferentes configurações familiares: casais homoafetivos, famílias monoparentais, avós cuidadores e outras estruturas. Segundo os princípios de diversidade e inclusão, qual é a abordagem mais adequada?</div>
+                <label class="option"><input type="radio" name="q21" value="A"> A) Reconhecer e validar todas as formas de configuração familiar, utilizando linguagem inclusiva e evitando pressuposições sobre a estrutura familiar do paciente</label>
+                <label class="option"><input type="radio" name="q21" value="B"> B) Seguir apenas o modelo tradicional de família nuclear nos formulários e abordagens</label>
+                <label class="option"><input type="radio" name="q21" value="C"> C) Evitar perguntas sobre a composição familiar para não criar constrangimentos</label>
+                <label class="option"><input type="radio" name="q21" value="D"> D) Tratar todas as famílias da mesma forma, sem considerar suas particularidades</label>
+            </div>
+
+            <div class="question">
+                <div class="question-header">Questão 22 - Diversidade e Inclusão</div>
+                <div class="question-text">A diversidade nas equipes de saúde traz múltiplos benefícios para o cuidado dos pacientes. Qual das alternativas apresenta corretamente uma vantagem da diversidade e inclusão na área da saúde?</div>
+                <label class="option"><input type="radio" name="q22" value="A"> A) Aumenta a complexidade administrativa sem benefícios práticos para o atendimento</label>
+                <label class="option"><input type="radio" name="q22" value="B"> B) Equipes diversas trazem diferentes perspectivas e experiências, enriquecendo a tomada de decisões e resultando em atendimento mais abrangente e eficaz</label>
+                <label class="option"><input type="radio" name="q22" value="C"> C) Cria mais conflitos na equipe, prejudicando a qualidade do cuidado</label>
+                <label class="option"><input type="radio" name="q22" value="D"> D) É relevante apenas do ponto de vista legal, sem impacto na prática clínica</label>
+            </div>
+
+            <div class="question">
+                <div class="question-header">Questão 23 - Diversidade e Inclusão</div>
+                <div class="question-text">Um paciente transgênero é admitido na unidade e solicita ser chamado por seu nome social, diferente do nome que consta nos documentos. Como o técnico de enfermagem deve proceder de acordo com os princípios de diversidade e inclusão?</div>
+                <label class="option"><input type="radio" name="q23" value="A"> A) Ignorar a solicitação e utilizar apenas o nome do documento de identidade</label>
+                <label class="option"><input type="radio" name="q23" value="B"> B) Utilizar o nome social conforme solicitado pelo paciente, respeitando sua identidade de gênero e dignidade</label>
+                <label class="option"><input type="radio" name="q23" value="C"> C) Questionar a escolha do paciente e tentar convencê-lo a aceitar o nome de registro</label>
+                <label class="option"><input type="radio" name="q23" value="D"> D) Chamar o paciente apenas pelo número do leito para evitar constrangimentos</label>
+            </div>
+
+            <div class="question">
+                <div class="question-header">Questão 24 - Diversidade e Inclusão</div>
+                <div class="question-text">Os formulários de admissão de um hospital estão sendo revisados para refletir a diversidade familiar. Qual mudança está mais alinhada com as estratégias de trabalhar a diversidade familiar na área de saúde?</div>
+                <label class="option"><input type="radio" name="q24" value="A"> A) Manter apenas os campos "pai" e "mãe" para acompanhantes</label>
+                <label class="option"><input type="radio" name="q24" value="B"> B) Incluir campos como "responsável legal" ou "pessoa de referência" em vez de categorias rígidas</label>
+                <label class="option"><input type="radio" name="q24" value="C"> C) Solicitar comprovação legal de todos os vínculos familiares antes do atendimento</label>
+                <label class="option"><input type="radio" name="q24" value="D"> D) Eliminar completamente qualquer referência à família nos formulários</label>
+            </div>
+
+            <div class="question">
+                <div class="question-header">Questão 25 - Diversidade e Inclusão</div>
+                <div class="question-text">Durante uma reunião de equipe, você percebe que alguns colegas fazem piadas baseadas em estereótipos raciais. Segundo as práticas de prevenção da discriminação no ambiente de trabalho, qual atitude é mais apropriada?</div>
+                <label class="option"><input type="radio" name="q25" value="A"> A) Participar das piadas para manter o bom relacionamento com a equipe</label>
+                <label class="option"><input type="radio" name="q25" value="B"> B) Ignorar a situação, pois são apenas brincadeiras inofensivas</label>
+                <label class="option"><input type="radio" name="q25" value="C"> C) Abordar a situação destacando a importância de uma comunicação respeitosa, livre de termos racistas e estereótipos</label>
+                <label class="option"><input type="radio" name="q25" value="D"> D) Denunciar imediatamente todos os envolvidos sem tentar dialogar primeiro</label>
+            </div>
+
+            <div class="question">
+                <div class="question-header">Questão 26 - Diversidade e Inclusão</div>
+                <div class="question-text">A competência cultural é essencial para a comunicação eficaz em contextos diversos. Um técnico de enfermagem atende uma família que pratica rituais religiosos específicos relacionados à saúde. Qual abordagem demonstra competência cultural?</div>
+                <label class="option"><input type="radio" name="q26" value="A"> A) Desencorajar as práticas religiosas por não serem baseadas em evidências científicas</label>
+                <label class="option"><input type="radio" name="q26" value="B"> B) Reconhecer e respeitar as crenças e práticas de saúde do paciente, buscando integrá-las ao plano de cuidados quando possível e seguro</label>
+                <label class="option"><input type="radio" name="q26" value="C"> C) Fingir concordar com as práticas mas não incorporá-las ao cuidado</label>
+                <label class="option"><input type="radio" name="q26" value="D"> D) Insistir que o paciente abandone suas práticas religiosas para receber o tratamento</label>
+            </div>
+
+            <div class="question">
+                <div class="question-header">Questão 27 - Diversidade e Inclusão</div>
+                <div class="question-text">Uma instituição de saúde está implementando políticas de inclusão para pessoas com deficiência (PCD). Além da acessibilidade física, que outros aspectos devem ser considerados para um ambiente verdadeiramente inclusivo?</div>
+                <label class="option"><input type="radio" name="q27" value="A"> A) Apenas rampas e elevadores são suficientes para garantir inclusão</label>
+                <label class="option"><input type="radio" name="q27" value="B"> B) Acessibilidade comunicacional, oportunidades iguais de desenvolvimento profissional e valorização das diferentes identidades e experiências</label>
+                <label class="option"><input type="radio" name="q27" value="C"> C) Contratar pessoas com deficiência apenas para cumprir cotas legais</label>
+                <label class="option"><input type="radio" name="q27" value="D"> D) Segregar profissionais com deficiência em setores específicos</label>
+            </div>
+
+            <div class="question">
+                <div class="question-header">Questão 28 - Diversidade e Inclusão</div>
+                <div class="question-text">Durante a anamnese, um paciente idoso de origem indígena relata usar plantas medicinais para tratar sua condição. O técnico de enfermagem, formado em uma abordagem biomédica ocidental, precisa registrar essa informação. Qual atitude reflete melhor a adaptação do atendimento às necessidades individuais?</div>
+                <label class="option"><input type="radio" name="q28" value="A"> A) Ridicularizar o uso de plantas medicinais como prática ultrapassada</label>
+                <label class="option"><input type="radio" name="q28" value="B"> B) Registrar a informação sem julgamento e comunicar à equipe para avaliação de possíveis interações com tratamentos prescritos</label>
+                <label class="option"><input type="radio" name="q28" value="C"> C) Omitir essa informação do prontuário por considerá-la irrelevante</label>
+                <label class="option"><input type="radio" name="q28" value="D"> D) Impor imediatamente que o paciente abandone o uso das plantas</label>
+            </div>
+
+            <div class="question">
+                <div class="question-header">Questão 29 - Diversidade e Inclusão</div>
+                <div class="question-text">A promoção da equidade em saúde envolve identificar e abordar barreiras que impedem o acesso de diferentes grupos populacionais. Qual situação exemplifica uma ação voltada para a promoção da equidade?</div>
+                <label class="option"><input type="radio" name="q29" value="A"> A) Oferecer o mesmo tratamento padronizado para todos os pacientes, independente de suas características</label>
+                <label class="option"><input type="radio" name="q29" value="B"> B) Criar grupos de apoio específicos para populações vulneráveis e oferecer materiais educativos em diferentes idiomas e formatos acessíveis</label>
+                <label class="option"><input type="radio" name="q29" value="C"> C) Priorizar apenas pacientes com maior poder aquisitivo</label>
+                <label class="option"><input type="radio" name="q29" value="D"> D) Limitar o atendimento a grupos específicos para otimizar recursos</label>
+            </div>
+
+            <div class="question">
+                <div class="question-header">Questão 30 - Diversidade e Inclusão</div>
+                <div class="question-text">O respeito à autonomia do paciente é fundamental no cuidado de enfermagem, especialmente em contextos de diversidade. Qual prática melhor exemplifica o respeito à autonomia em um contexto de diversidade cultural?</div>
+                <label class="option"><input type="radio" name="q30" value="A"> A) Tomar decisões em nome do paciente para agilizar o processo de tratamento</label>
+                <label class="option"><input type="radio" name="q30" value="B"> B) Impor as recomendações médicas sem considerar as preferências culturais do paciente</label>
+                <label class="option"><input type="radio" name="q30" value="C"> C) Garantir que o paciente esteja totalmente informado e envolvido nas decisões sobre seu tratamento, respeitando suas escolhas e valores culturais</label>
+                <label class="option"><input type="radio" name="q30" value="D"> D) Delegar todas as decisões exclusivamente para a família, ignorando a vontade do paciente</label>
+            </div>
+
+            <button type="button" class="btn" onclick="submitQuiz()">Finalizar e Ver Resultado</button>
+        </form>
+
+        <div id="resultado">
+            <div class="score" id="scoreDisplay"></div>
+            <div id="gabarito"></div>
+            <button class="btn" onclick="window.location.reload()">Refazer Simulado</button>
+        </div>
+    </div>
+
+    <script>
+        const gabarito = {
+            q1: 'A', q2: 'B', q3: 'C', q4: 'D', q5: 'A',
+            q6: 'B', q7: 'C', q8: 'B', q9: 'C', q10: 'D',
+            q11: 'B', q12: 'B', q13: 'C', q14: 'D', q15: 'B',
+            q16: 'C', q17: 'C', q18: 'B', q19: 'C', q20: 'C',
+            q21: 'A', q22: 'B', q23: 'B', q24: 'B', q25: 'C',
+            q26: 'B', q27: 'B', q28: 'B', q29: 'B', q30: 'C'
+        };
+
+        const questoes = {
+            q1: 'A PNH propõe resgatar princípios do SUS',
+            q2: 'Princípio da transversalidade na PNH',
+            q3: 'Importância de investir no trabalhador',
+            q4: 'Indissociabilidade entre atenção e gestão',
+            q5: 'Papel do Grupo de Trabalho de Humanização',
+            q6: 'Valorização da participação de usuários',
+            q7: 'Ambiência hospitalar e humanização',
+            q8: 'Relações interpessoais na equipe',
+            q9: 'Ergonomia no ambiente de trabalho',
+            q10: 'Espaços de compartilhamento na equipe',
+            q11: 'Fatores intrapsíquicos do estresse',
+            q12: 'Caracterização do assédio moral',
+            q13: 'Tipos de assédio moral',
+            q14: 'Fases do assédio moral',
+            q15: 'Diferença entre estresse e Burnout',
+            q16: 'Sintomas da Síndrome de Burnout',
+            q17: 'Assédio moral vs atos de gestão',
+            q18: 'Perfil do agressor no assédio moral',
+            q19: 'Consequências do assédio moral',
+            q20: 'Canal de denúncia e compliance',
+            q21: 'Diversidade familiar na saúde',
+            q22: 'Benefícios da diversidade na saúde',
+            q23: 'Nome social e identidade de gênero',
+            q24: 'Formulários inclusivos',
+            q25: 'Prevenção da discriminação no trabalho',
+            q26: 'Competência cultural',
+            q27: 'Inclusão de pessoas com deficiência',
+            q28: 'Atendimento individualizado',
+            q29: 'Promoção da equidade em saúde',
+            q30: 'Respeito à autonomia do paciente'
+        };
+
+        // Adicionar evento de clique nas opções
+        document.querySelectorAll('.option').forEach(option => {
+            option.addEventListener('click', function() {
+                const radio = this.querySelector('input[type="radio"]');
+                const name = radio.name;
+                
+                // Remove seleção anterior
+                document.querySelectorAll(`input[name="${name}"]`).forEach(r => {
+                    r.parentElement.classList.remove('selected');
+                });
+                
+                // Adiciona seleção atual
+                radio.checked = true;
+                this.classList.add('selected');
+            });
+        });
+
+        function submitQuiz() {
+            let acertos = 0;
+            let respondidas = 0;
+            let resultadoHTML = '';
+
+            // Verificar se todas as questões foram respondidas
+            for (let i = 1; i <= 30; i++) {
+                const resposta = document.querySelector(`input[name="q${i}"]:checked`);
+                if (resposta) {
+                    respondidas++;
+                }
+            }
+
+            if (respondidas < 30) {
+                alert(`Você respondeu ${respondidas} de 30 questões. Por favor, responda todas as questões antes de finalizar.`);
+                return;
+            }
+
+            // Calcular resultados
+            for (let i = 1; i <= 30; i++) {
+                const resposta = document.querySelector(`input[name="q${i}"]:checked`);
+                const respostaUsuario = resposta ? resposta.value : 'Não respondida';
+                const respostaCorreta = gabarito[`q${i}`];
+                const acertou = respostaUsuario === respostaCorreta;
+
+                if (acertou) acertos++;
+
+                const classe = acertou ? 'correto' : 'incorreto';
+                const status = acertou ? '✓ Correto' : '✗ Incorreto';
+
+                resultadoHTML += `
+                    <div class="gabarito-item ${classe}">
+                        <strong>Questão ${i}</strong> - ${questoes[`q${i}`]}<br>
+                        <span class="sua-resposta">Sua resposta: ${respostaUsuario}</span> ${status}<br>
+                        ${!acertou ? `<strong>Resposta correta: ${respostaCorreta}</strong>` : ''}
+                    </div>
+                `;
+            }
+
+            const porcentagem = ((acertos / 30) * 100).toFixed(1);
+            const aprovado = porcentagem >= 70;
+
+            document.getElementById('scoreDisplay').innerHTML = `
+                <div>Você acertou <strong>${acertos}</strong> de <strong>30</strong> questões</div>
+                <div style="font-size: 32px; margin: 10px 0;">${porcentagem}%</div>
+                <div>${aprovado ? '✓ Aprovado' : '✗ Reprovado'} (Mínimo: 70%)</div>
+            `;
+            
+            document.getElementById('scoreDisplay').className = `score ${aprovado ? 'aprovado' : 'reprovado'}`;
+            document.getElementById('gabarito').innerHTML = resultadoHTML;
+
+            // Mostrar resultado e esconder formulário
+            document.getElementById('quizForm').style.display = 'none';
+            document.getElementById('resultado').style.display = 'block';
+
+            // Scroll para o topo
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
