@@ -90,7 +90,7 @@
         <button class="menu-btn" onclick="iniciarQuiz('relacoes')">Relações Humanas</button>
         <button class="menu-btn" onclick="iniciarQuiz('coletiva')">Saúde Coletiva (Vacinas)</button>
         <button class="menu-btn" onclick="iniciarQuiz('doencas')">Saúde Coletiva (Doenças)</button>
-        
+        <button class="menu-btn disabled" id="btn-portugues" onclick="iniciarQuiz('portugues')">Português (Em breve)</button>
         <button class="menu-btn disabled" id="btn-psicologia" onclick="iniciarQuiz('psicologia')">Psicologia (Em breve)</button>
         <button class="menu-btn disabled" id="btn-ambiental" onclick="iniciarQuiz('ambiental')">Saúde Ambiental (Em breve)</button>
         <button class="menu-btn disabled" id="btn-organizacional" onclick="iniciarQuiz('organizacional')">Processos Organizacionais (Em breve)</button>
@@ -251,6 +251,7 @@
         ],
 
         // --- ESPAÇO PARA AS NOVAS MATÉRIAS ---
+        portugues: [],
         psicologia: [],
         ambiental: [],
         organizacional: []
@@ -268,6 +269,7 @@
         if(bancoDeQuestoes.psicologia.length > 0) document.getElementById('btn-psicologia').classList.remove('disabled');
         if(bancoDeQuestoes.ambiental.length > 0) document.getElementById('btn-ambiental').classList.remove('disabled');
         if(bancoDeQuestoes.organizacional.length > 0) document.getElementById('btn-organizacional').classList.remove('disabled');
+        if(bancoDeQuestoes.portugues.length > 0) document.getElementById('btn-portugues').classList.remove('disabled');
     }
 
     function mostrarTela(idTela) {
@@ -287,6 +289,7 @@
             'doencas': 'Saúde Coletiva (Doenças)',
             'psicologia': 'Psicologia',
             'ambiental': 'Saúde Ambiental',
+            'portugues': 'Língua Portuguesa',
             'organizacional': 'Processos Organizacionais'
         };
         document.getElementById('quiz-title').innerText = titulos[materia];
